@@ -25,6 +25,12 @@
 - Postgress - as main database (docker container)
   - Postbird - software for postgress database(create a new database for gobarber)
 
+# Sequelize
+- Creating User model
+  - yarn sequelize migration:create --name=create-users
+  - yarn sequelize db:migrate - For creation
+  - yarn sequelize db:migrate:undo OR yarn sequelize db:migrate:undo:all - For rollback
+
 # How to start
 
 - Run: yarn OR npm install

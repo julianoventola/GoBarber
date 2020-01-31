@@ -1,8 +1,8 @@
-// Does not support import/export because of Sequeliza
+// Does not support import/export because of Sequelize
 module.exports = {
   dialect: 'postgres',
   host: 'localhost',
-  username: 'postgress',
+  username: 'postgres',
   password: 'docker',
   database: 'gobarber',
   define: {
