@@ -8,6 +8,11 @@
   - eslint-config-prettier - Makes prettier works with eslint (dev dependence)
   - eslint-plugin-prettier - Makes prettier works with eslint (dev dependence)
   - Run: yarn eslint --fix src --ext .js - This will fix all .js in folder
+- sequelize - Used as ORM for databases, Javascript instead SQL
+  - Migration - for version control in database(create, update, delete in database)
+- sequelize-cli - Used to controll migrations
+- pg - Used to work with postgress
+- pg-hstore - Used to work with postgress and sequeliza
 
 # Docker
 
@@ -15,16 +20,10 @@
 - Run: docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432
 - \*If docker container stops run: docker start database
 - See all running dockers, run: docker ps
-
   - Port 5432 must be free for docker
   - Dont install postgress let it by docker
-
 - Postgress - as main database (docker container)
   - Postbird - software for postgress database(create a new database for gobarber)
-
-# Sequelize - ORM - Javascript instead SQL
-
-- ## Migration - for version control in database(create, update, delete in database)
 
 # How to start
 
