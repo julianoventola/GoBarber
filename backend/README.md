@@ -1,4 +1,4 @@
-# GoBarber - Backend (Windows)
+# GoBarber - Backend (Windows) - (Working on...)
 
 - express - Used to run the server
 - sucrase - Enable to use import from/ export default in js files (dev dependence)
