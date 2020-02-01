@@ -13,6 +13,9 @@
 - sequelize-cli - Used to controll migrations
 - pg - Used to work with postgress
 - pg-hstore - Used to work with postgress and sequeliza
+- bcryptjs - Used to hash all passwords
+- jsonwebtoken - Used for JWT session auth
+- Yup - Used for schema (fields required) validation
 
 # Docker
 
@@ -26,6 +29,7 @@
   - Postbird - software for postgress database(create a new database for gobarber)
 
 # Sequelize
+
 - Creating User model
   - yarn sequelize migration:create --name=create-users
   - yarn sequelize db:migrate - For creation
