@@ -2,6 +2,19 @@ import * as Yup from 'yup';
 import User from '../models/User';
 
 class UserController {
+  // List all users
+  async index(req, res) {
+    const infoUsers = [];
+    const allUsers = await User.findAll();
+
+    allUsers.forEach(user => {
+      const { id, name, email, provider } = user;
+      infoUsers.push({ id, name, email, provider });
+    });
+    return res.json(infoUsers);
+  }
+
+  // Create new user
   async store(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string().required(),
@@ -27,6 +40,7 @@ class UserController {
     return res.json({ id, name, email, provider });
   }
 
+  // Update user
   async update(req, res) {
     const schema = Yup.object().shape({
       name: Yup.string(),
@@ -68,6 +82,27 @@ class UserController {
     const { id, name } = await User.findByPk(req.userId);
 
     return res.json({ id, name, email });
+  }
+
+  // Delete user
+  async delete(req, res) {
+    const schema = Yup.object().shape({
+      deleteMe: Yup.string(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({ error: 'Validation fails' });
+    }
+    const { deleteMe } = req.body;
+
+    if (deleteMe !== 'delete') {
+      return res.status(400).json({ error: 'Delete not authorized' });
+    }
+
+    const user = await User.findByPk(req.userId);
+    await user.destroy();
+
+    return res.json({ ok: true });
   }
 }
 
