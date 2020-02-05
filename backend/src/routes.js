@@ -1,13 +1,22 @@
 // Router for routes
 import { Router } from 'express';
 
+// Multer to handle files
+import multer from 'multer';
+import multerConfig from './config/multer';
+
+// Controllers - Database
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
+import FileController from './app/controllers/FileController';
 
-// Utiliza o Middleware para validação dos usuários
+// Uses middleware to validade login/session
 import authMiddleware from './app/middlewares/auth';
 
+// Using routes
 const routes = new Router();
+// Using multer
+const upload = multer(multerConfig);
 
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
@@ -17,5 +26,7 @@ routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
 routes.delete('/users', UserController.delete);
+
+routes.post('/files', upload.single('file'), FileController.store);
 
 export default routes;

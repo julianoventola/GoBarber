@@ -16,6 +16,7 @@
 - bcryptjs - Used to hash all passwords
 - jsonwebtoken - Used for JWT session auth
 - Yup - Used for schema (fields required) validation
+- Multer - Used to handle multipartformdata / Files
 
 # Docker
 
