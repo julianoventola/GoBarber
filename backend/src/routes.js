@@ -7,6 +7,7 @@ import multerConfig from './config/multer';
 
 // Controllers - Database
 import UserController from './app/controllers/UserController';
+import ProviderController from './app/controllers/ProviderController';
 import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
 
@@ -28,5 +29,7 @@ routes.put('/users', UserController.update);
 routes.delete('/users', UserController.delete);
 
 routes.post('/files', upload.single('file'), FileController.store);
+
+routes.get('/providers', ProviderController.index);
 
 export default routes;

@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import routes from './routes';
 
 import './database';
@@ -15,6 +16,11 @@ class App {
   middlewares() {
     // Enable server to handle json data
     this.server.use(express.json());
+    // Enable an url to access each file(user avatar)
+    this.server.use(
+      '/files',
+      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+    );
   }
 
   // User CRUD in routes
