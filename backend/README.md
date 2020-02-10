@@ -17,6 +17,7 @@
 - jsonwebtoken - Used for JWT session auth
 - Yup - Used for schema (fields required) validation
 - Multer - Used to handle multipartformdata / Files
+- date-fns - Used to handle dates and hours
 
 # Docker
 

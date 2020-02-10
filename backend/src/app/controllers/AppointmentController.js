@@ -11,9 +11,9 @@ class AppointmentController {
       where: { user_id: req.userId, canceled_at: null },
       order: ['date'],
       attributes: ['id', 'date'],
-      // Quantos regististros serão trazidos
+      // How many registers are showed
       limit: 20,
-      // Quantos regitros pular para cada página
+      // How many registers are skiped
       offset: (page - 1) * 20,
       include: [
         {
