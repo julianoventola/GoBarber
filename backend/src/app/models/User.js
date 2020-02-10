@@ -26,6 +26,7 @@ class User extends Model {
     return this;
   }
 
+  // Link foreign key to Files database
   static associate(models) {
     this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
   }
