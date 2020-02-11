@@ -23,6 +23,9 @@
 - express-handlebars - Used to create templates HTML + Javascript for emails
 - nodemailer-express-handlebars - Used to work nodemailer with templates
 - bee-queue - Used to work with Background jobs(Queues)
+- sentry/node - Used to track errors in the server
+- express-async-errors - Used to enable express to send async errors through sentry
+- youch - Used to handle request errors
 
 # Docker
 
@@ -55,6 +58,12 @@
   - yarn sequelize migration:create --name=create-users
   - yarn sequelize db:migrate - For creation
   - yarn sequelize db:migrate:undo OR yarn sequelize db:migrate:undo:all - For rollback
+
+# Sentry
+
+- Create a new project in sentry.io (express)
+  - yarn add @sentry/node@5.12.2 OR npm install @sentry/node@5.12.2
+  - configure YOUR project's dsn
 
 # How to start
 
