@@ -11,24 +11,31 @@
 - sequelize - Used as ORM for databases, Javascript instead SQL
   - Migration - for version control in database(create, update, delete in database)
 - sequelize-cli - Used to controll migrations
-- pg - Used to work with postgress
-- pg-hstore - Used to work with postgress and sequeliza
+- pg - Used to work with postgres
+- pg-hstore - Used to work with postgres and sequelize
 - bcryptjs - Used to hash all passwords
 - jsonwebtoken - Used for JWT session auth
 - Yup - Used for schema (fields required) validation
 - Multer - Used to handle multipartformdata / Files
 - date-fns - Used to handle dates and hours
+- mongoose - Used to work with mongo db
 
 # Docker
 
 - Install docker: https://docs.docker.com/install/
-- Run: docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432
-- \*If docker container stops run: docker start database
-- See all running dockers, run: docker ps
-  - Port 5432 must be free for docker
-  - Dont install postgress let it by docker
-- Postgress - as main database (docker container)
-  - Postbird - software for postgress database(create a new database for gobarber)
+
+- POSTGRES:
+
+  - Run: docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432
+  - \*If docker container stops run: docker start database
+  - See all running dockers, run: docker ps
+    - Port 5432 must be free for docker
+    - Dont install postgress let it by docker
+  - Postgress - as main database (docker container)
+    - Postbird - software for postgress database(create a new database for gobarber)
+
+- MONGO DB:
+  - Run: docker run --name mongobarber -p 27017:27017 -d -t mongo
 
 # Sequelize
 
