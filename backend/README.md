@@ -26,6 +26,7 @@
 - sentry/node - Used to track errors in the server
 - express-async-errors - Used to enable express to send async errors through sentry
 - youch - Used to handle request errors
+- dotenv - Used to create environment variables to improve security and default configurations
 
 # Docker
 
