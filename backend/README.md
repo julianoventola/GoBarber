@@ -31,11 +31,13 @@
   - See all running dockers, run: docker ps
     - Port 5432 must be free for docker
     - Dont install postgress let it by docker
-  - Postgress - as main database (docker container)
-    - Postbird - software for postgress database(create a new database for gobarber)
+  - Postgres - as main database (docker container)
+    - Postbird - software for postgres database(create a new database for gobarber)
 
 - MONGO DB:
   - Run: docker run --name mongobarber -p 27017:27017 -d -t mongo
+  - Mongo - as nosql database for Notifications(docker container)
+    - Mongo db Compass community - software for mongo database
 
 # Sequelize
 
