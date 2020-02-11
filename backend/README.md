@@ -1,4 +1,4 @@
-# GoBarber - Backend (Windows) - (Working on...)
+# GoBarber - Backend (Windows)
 
 - express - Used to run the server
 - sucrase - Enable to use import from/ export default in js files (dev dependence)
@@ -20,6 +20,7 @@
 - date-fns - Used to handle dates and hours
 - mongoose - Used to work with mongo db
 - nodemailer - Used to send emails (used with mailtrap.io)
+  - You must use you credentials from mailtrap.io
 - express-handlebars - Used to create templates HTML + Javascript for emails
 - nodemailer-express-handlebars - Used to work nodemailer with templates
 - bee-queue - Used to work with Background jobs(Queues)
@@ -31,11 +32,12 @@
 # Docker
 
 - Install docker: https://docs.docker.com/install/
+  \*All docker's containers must be running with the correct names
 
 - POSTGRES:
 
   - Run: docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432
-  - \*If docker container stops run: docker start database
+  - \*If docker container stops, run: docker start database
   - See all running dockers, run: docker ps
     - Port 5432 must be free for docker
     - Dont install postgress let it by docker
@@ -71,6 +73,3 @@
 - Run: yarn OR npm install
 - Run: yarn dev OR npm dev
 - Run: yarn queue OR npm queue (for background jobs - keep it running with server)
-
-\*All docker's containers must be running with the correct names
-\*You must use you credentials from mailtrap.io
