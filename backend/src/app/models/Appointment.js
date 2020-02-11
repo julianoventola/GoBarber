@@ -1,17 +1,32 @@
 import Sequelize, { Model } from 'sequelize';
+import { isBefore, subHours } from 'date-fns';
 
 class Appointments extends Model {
   static init(sequelize) {
     super.init(
       {
-        // Fields that can handle information, but does not need to exist in DB
         date: Sequelize.DATE,
         canceled_at: Sequelize.DATE,
+        // Check if this appointment is in the past
+        past: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return isBefore(this.date, new Date());
+          },
+        },
+        // Check if this appointment can be cancelable
+        cancelable: {
+          type: Sequelize.VIRTUAL,
+          get() {
+            return isBefore(new Date(), subHours(this.date, 2));
+          },
+        },
       },
       {
         sequelize,
       }
     );
+
     return this;
   }
 

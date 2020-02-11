@@ -13,6 +13,7 @@ import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
 import ScheduleController from './app/controllers/ScheduleController';
 import NotificationnController from './app/controllers/NotificationnController';
+import AvailableController from './app/controllers/AvailableController';
 
 // Uses middleware to validade login/session
 import authMiddleware from './app/middlewares/auth';
@@ -34,6 +35,7 @@ routes.delete('/users', UserController.delete);
 routes.post('/files', upload.single('file'), FileController.store);
 
 routes.get('/providers', ProviderController.index);
+routes.get('/providers/:providerId/available', AvailableController.index);
 
 routes.get('/appointments', AppointmentController.index);
 routes.post('/appointments', AppointmentController.store);

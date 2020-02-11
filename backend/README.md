@@ -19,6 +19,10 @@
 - Multer - Used to handle multipartformdata / Files
 - date-fns - Used to handle dates and hours
 - mongoose - Used to work with mongo db
+- nodemailer - Used to send emails (used with mailtrap.io)
+- express-handlebars - Used to create templates HTML + Javascript for emails
+- nodemailer-express-handlebars - Used to work nodemailer with templates
+- bee-queue - Used to work with Background jobs(Queues)
 
 # Docker
 
@@ -35,9 +39,15 @@
     - Postbird - software for postgres database(create a new database for gobarber)
 
 - MONGO DB:
+
   - Run: docker run --name mongobarber -p 27017:27017 -d -t mongo
-  - Mongo - as nosql database for Notifications(docker container)
+  - Mongo - as noSQL database for Notifications(docker container)
     - Mongo db Compass community - software for mongo database
+
+- REDIS:
+
+  - Run: docker run --name redisbarber -p 6379:6379 -d -t redis:alpine
+  - Redis - as noSQL database for Background jobs - Queues(docker container)
 
 # Sequelize
 
@@ -50,3 +60,7 @@
 
 - Run: yarn OR npm install
 - Run: yarn dev OR npm dev
+- Run: yarn queue OR npm queue (for background jobs - keep it running with server)
+
+\*All docker's containers must be running with the correct names
+\*You must use you credentials from mailtrap.io

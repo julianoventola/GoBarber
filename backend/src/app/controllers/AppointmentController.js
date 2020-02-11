@@ -6,13 +6,16 @@ import User from '../models/User';
 import File from '../models/File';
 import Notification from '../schemas/Notification';
 
+import CancellationMail from '../jobs/CancellationMail';
+import Queue from '../../lib/Queue';
+
 class AppointmentController {
   async index(req, res) {
     const { page = 1 } = req.query;
     const appointments = await Appointment.findAll({
       where: { user_id: req.userId, canceled_at: null },
       order: ['date'],
-      attributes: ['id', 'date'],
+      attributes: ['id', 'date', 'past', 'cancelable'],
       // How many registers are showed
       limit: 20,
       // How many registers are skiped
@@ -140,6 +143,9 @@ class AppointmentController {
     appointment.canceled_at = new Date();
 
     await appointment.save();
+
+    // Cancellation Mail Job - uses Queue
+    await Queue.add(CancellationMail.key, { appointment });
 
     // await Queue.add(CancellationMail.key, { appointment });
 
